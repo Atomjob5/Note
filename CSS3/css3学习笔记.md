@@ -62,6 +62,20 @@ main > ul li:nth-child(n):not(:nth-child(1))
 
 
 
+# 文字
+
+> `letter-spacing`  文字间距
+
+
+
+> `text-transform`  文字形式
+
+
+
+
+
+
+
 # 栅格系统
 
 > 基础页面
@@ -554,9 +568,131 @@ document.querySelector('div').addEventListener('transitionend',function(e)){
 
 
 
+> `transition-timing-function`  运行轨迹
 
 
 
+> `transition-delay`  延迟过渡
+
+
+
+
+
+> 简写
+
+```css
+/* 全部 */
+transition: [transition-property] [transition-timing-fuction] [transition-duration] [transition-delay] 
+
+/* 单独 */
+transition: background ease 1s 1s,border-radis linear 1s 0s;
+```
+
+
+
+# 变形与透视
+
+> `translate`
+
+```css
+/* 根据元素自身尺寸的百分比，如果元素为100px宽度，则移动100/2=50px */
+transition: translate(50%, 100px)  
+```
+
+
+
+> `perspective`  透视
+
+透视时会计算子元素
+
+
+
+> `perspective-origin`  观看角度
+
+
+
+> `rotate`  旋转
+
+
+
+> `scale`  缩放
+
+
+
+> `transform-origin`  缩放基线
+
+
+
+> `transform-style`  
+
+
+
+> `filter`  高斯模糊
+
+
+
+> `skew`  倾斜
 
 # 动画
+
+> `@keyframes [名称] `  
+
+```css
+@keyframes kf{
+    from{
+        
+    }
+    to{
+        
+    }
+}
+```
+
+
+
+> `animation-name`
+
+
+
+> `animation-duration`
+
+
+
+> `animation-delay`  动画延迟
+
+
+
+> `animation-fill-mode`  填充模式
+
+
+
+> `animation-iteration-count`   动画循环次数
+
+- `infinite`  无限循环
+
+
+
+> `animation-direction`  动画方向
+
+
+
+> `animation-delay`  延迟
+
+
+
+> `animation-timing-function`
+
+- `steps( [step] , [start / end] )`  步进
+
+
+
+> `animation-play-state`  动画状态
+
+
+
+> `简写`
+
+```css
+animaiton: [name] [duration] [delay] [fill-mode] 
+```
 
