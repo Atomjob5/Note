@@ -551,6 +551,19 @@ public class Swagger2Configuration {
 
 
 
+> 令牌解析的错误
+
+- MalformedJwtException-如果指定的JWT构造错误（因此无效）。 无效的JWT不应该被信任，应该被丢弃。
+- SignatureException-如果发现JWS签名，但无法验证。 签名验证失败的JWT不应该被信任，应该被丢弃。
+- ExpiredJwtException-如果指定的JWT是Claims JWT，并且Claims在调用此方法之前有一个过期时间。
+- IllegalArgumentException-如果指定的字符串为null或为空，或者只有空白。
+
+
+
+
+
+
+
 
 
 
@@ -604,3 +617,41 @@ public class GlobalCorsConfig {
 }
 ```
 
+
+
+> 配置了全局跨域后，如果手动response也要配置跨域
+
+```java
+//跨域
+String headerOrigin = request.getHeader("origin");
+if(headerOrigin != null){
+    response.setHeader("Access-Control-Allow-Origin",headerOrigin);
+}
+response.setHeader("Access-Control-Expose-Headers","page, per_page,status,total_count");
+response.setHeader("Access-Control-Allow-Credentials", "true");
+response.setHeader("Access-Control-Allow-Headers",request.getHeader("Access-Control-Request-Headers"));
+response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE,PUT");
+
+//响应json
+response.setCharacterEncoding("utf-8");
+response.setContentType("application/json");
+
+```
+
+
+
+
+
+
+
+> Thumbnailator
+
+
+
+
+
+
+
+# Thumbnailator
+
+<a hreaf="https://www.cnblogs.com/linkstar/p/7412012.html">Java中使用Thumbnailator压缩图片</a>

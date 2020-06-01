@@ -682,6 +682,57 @@ Vue.component('login',{
 </script>
 ```
 
+
+
+> 子组件向父组件传递
+
+```vue
+<template>
+	<section>
+    	<h1 @click="childClick">子组件</h1>
+    </section>
+</template>
+
+<script>
+	export default{
+        name:'child',
+        methods:{
+            childClick(){
+                this.$emit('childEvent',now())
+            }
+        }
+    }
+</script>
+
+========================================
+
+<template>
+	<section>
+    	<child @childEvent="fatherListener"></child>
+    </section>
+</template>
+
+<script>
+    import child from 'child'
+    
+	export default{
+        name:'child',
+        component:{
+            child
+        },
+        methods:{
+            fatherListener(data){
+                console.log(data) // 控制台打印2020年5月25日20:13:25
+            }
+        }
+    }
+</script>
+```
+
+
+
+[父组件怎么传值给子组件的v-modal]:"https://www.cnblogs.com/lundin/p/10749803.html"
+
 # p27
 
 ### 路由
@@ -1260,4 +1311,87 @@ new Vue({
 
 
 
+# v-slot 插槽
+
+## 匿名插槽
+
+
+
+
+
+
+
+## 具名插槽
+
+> 指定插槽显示内容
+
+
+
+
+
+
+
+
+
+
+
+## 作用域插槽
+
+> 可以进行数据绑定，父子通讯插槽
+
+
+
+
+
+
+
+# 插件
+
+- 懒加载 `vue-lazyload`
+- 轮播 `vue-awesome-swiper`
+- 异步 `vue-axios`
+- Cookie  `vue-cookie`
+
+
+
+
+
+# Storage、Cookie的区别
+
+> 存储大小
+
+Cookie 4K，Storage 5M
+
+> 有效期
+
+Cookie拥有有效期，Storage永久存储
+
+> 存储位置
+
+Cookie会发送到服务器端，存储在内存中，Storage只存储在浏览器端
+
+> 路径
+
+Cookie有路径限制，Storage值存储在域名下
+
+> API
+
+Cookie没有特定的API，Storage有特定的API
+
+
+
+
+
+
+
+# Tinymce
+
+![image-20200526141741103](D:\study data\学习笔记\Vue\Vue学习笔记.assets\image-20200526141741103.png)
+
+
+
+> Vue中使用Tinymce的相关文章
+
+<a href="https://www.cnblogs.com/wisewrong/p/8985471.html">在 Vue 项目中引入 tinymce 富文本编辑器</a>
+<a href="https://www.cnblogs.com/zhongchao666/p/11142537.html">Vue CLI 3+tinymce 5富文本编辑器整合</a>
 
