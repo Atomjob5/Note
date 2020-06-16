@@ -51,3 +51,33 @@ holder --> method{策略}
 
 
 ![https://kirito.iocoder.cn/2011121410543010.jpg](https://kirito.iocoder.cn/2011121410543010.jpg)
+
+
+
+
+
+# 实现`AccessDeniedHandler`接口但抛出异常不通过该接口
+
+[spring security中配置了AccessDeniedHandler没有生效问题]:"https://blog.csdn.net/shan165310175/article/details/105415249"
+
+原因：
+
+​		使用`@PreAuthorize` 注解然后抛出权限不足异常，是不会被`AccessDeniedHandler`捕获到的，而是会被全局异常被捕获。
+
+
+
+
+
+
+
+# `@PreAuthorize(isAuthenticated())` 匿名用户会被拦截的原因
+
+```java
+public final boolean isAuthenticated() {
+	return !isAnonymous(); 
+}
+```
+
+​		`SecurityContextHolder` 的 `isAuthenticated()`方法对匿名用户和非匿名用户都是返回`true`
+
+​		在`@PreAuthorize`，`isAuthenticated()` 实现是对匿名用户返回`false`  

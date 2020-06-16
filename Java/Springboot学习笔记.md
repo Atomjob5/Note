@@ -655,3 +655,13 @@ response.setContentType("application/json");
 # Thumbnailator
 
 <a hreaf="https://www.cnblogs.com/linkstar/p/7412012.html">Java中使用Thumbnailator压缩图片</a>
+
+
+
+
+
+
+
+# MySql中的字段
+
+[[MySQL中tinytext、text、mediumtext和longtext详解](https://www.cnblogs.com/pureEve/p/6015000.html)]:"https://www.cnblogs.com/pureEve/p/6015000.html"

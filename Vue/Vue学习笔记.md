@@ -1395,3 +1395,53 @@ Cookie没有特定的API，Storage有特定的API
 <a href="https://www.cnblogs.com/wisewrong/p/8985471.html">在 Vue 项目中引入 tinymce 富文本编辑器</a>
 <a href="https://www.cnblogs.com/zhongchao666/p/11142537.html">Vue CLI 3+tinymce 5富文本编辑器整合</a>
 
+
+
+
+
+
+
+# 注册全局Filter的方法
+
+创建filters.js文件
+
+```js
+const filters = {
+    fmtUrl:function(url){
+        return 'hello' + url
+    }
+}
+
+export default (Vue) => {
+    Object.keys(filters).forEach(key => {
+        Vue.filter( key , filters[key])
+    })
+}
+```
+
+
+
+在Vue实例中注册组件
+
+```js
+import Vue from 'Vue'
+import filters from './filters'
+
+filters(Vue)
+```
+
+
+
+使用
+
+```html
+<div>
+    {{ "www.baidu.com" | fmtUrl }} 
+</div>
+```
+
+
+
+# 环境配置文件
+
+[[vue-cli3.0 环境变量与模式](https://segmentfault.com/a/1190000015133974)]:"https://segmentfault.com/a/1190000015133974"
